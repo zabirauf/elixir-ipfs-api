@@ -1,0 +1,14 @@
+language: elixir
+elixir: 1.0.4
+otp_release:
+  - 17.1
+sudo: false
+before_script:
+  - mix deps.get --only test
+script:
+  - mix compile
+  - mix test
+after_script:
+  - cd $TRAVIS_BUILD_DIR
+  - MIX_ENV=docs mix deps.get
+  - MIX_ENV=docs mix inch.report

@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/zabirauf/elixir-ipfs-api.svg)](https://travis-ci.org/zabirauf/elixir-ipfs-api) | [![Inline docs](http://inch-ci.org/github/zabirauf/elixir-ipfs-api.svg)](http://inch-ci.org/github/zabirauf/elixir-ipfs-api)
+
+
 # Elixir-Ipfs-Api
 
 The Elixir library that is used to communicate with the IPFS REST endpoint.
