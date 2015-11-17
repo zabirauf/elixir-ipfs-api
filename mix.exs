@@ -3,8 +3,9 @@ defmodule ElixirIpfsApi.Mixfile do
 
   def project do
     [app: :elixir_ipfs_api,
-     version: "0.0.1",
+     version: "0.1.0",
      elixir: "~> 1.0",
+     description: "An elixir client library for the IPFS API",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -31,6 +32,15 @@ defmodule ElixirIpfsApi.Mixfile do
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 1.5"},
       {:inch_ex, only: :docs}
+    ]
+  end
+
+  defp package do
+    [
+      maintainers: ["Zohaib Rauf"],
+      license: ["MIT"],
+      links: %{"GitHub" => "https://github.com/zabirauf/elixir-ipfs-api",
+               "Docs" => "http://hexdocs.pm/elixir_ipfs_api"}
     ]
   end
 end

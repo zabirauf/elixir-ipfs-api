@@ -1,2 +1,0 @@
-defmodule ElixirIpfsApi do
-end
