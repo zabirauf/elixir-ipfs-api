@@ -31,7 +31,9 @@ defmodule ElixirIpfsApi.Mixfile do
     [
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 1.5"},
-      {:inch_ex, only: :docs}
+      {:inch_ex, only: :docs},
+      {:ex_doc, "~> 0.10.0", only: :dev},
+      {:earmark, "~> 0.1", only: :dev},
     ]
   end
 
