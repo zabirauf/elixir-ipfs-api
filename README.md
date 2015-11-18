@@ -1,21 +1,60 @@
-[![Build Status](https://travis-ci.org/zabirauf/elixir-ipfs-api.svg)](https://travis-ci.org/zabirauf/elixir-ipfs-api) | [![Inline docs](http://inch-ci.org/github/zabirauf/elixir-ipfs-api.svg)](http://inch-ci.org/github/zabirauf/elixir-ipfs-api)
+[![Build Status](https://travis-ci.org/zabirauf/elixir-ipfs-api.svg)](https://travis-ci.org/zabirauf/elixir-ipfs-api) [![Inline docs](http://inch-ci.org/github/zabirauf/elixir-ipfs-api.svg)](http://inch-ci.org/github/zabirauf/elixir-ipfs-api)
 
+Current Version: [v0.1.0](https://hex.pm/packages/elixir_ipfs_api)
 
 # Elixir-Ipfs-Api
 
 The Elixir library that is used to communicate with the IPFS REST endpoint.
 
-# Examples
+![elixir_ipfs_api](https://cloud.githubusercontent.com/assets/1104560/11236786/a332e2ba-8d90-11e5-9b21-e37a0931130c.png)
 
-## Getting the version of IPFS node
+# [Documentation](http://hexdocs.pm/elixir_ipfs_api/)
+
+The documentation is posted at [hexdocs](http://hexdocs.pm/elixir_ipfs_api/)
+
+# How to use it
+
+## 1. Add the library to mix.exs
+
+The package is published on [Hex](https://hex.pm). Add the elixir\_ipfs\_api as follow
 
 ```
-iex> conn = %IpfsConnection{}
-iex> IpfsApi.version(conn)
-{:ok, %{"Commit" => "", "Repo" => "2", "Version" => "0.3.10-dev"}}
+defp deps do
+    [
+        ...
+        {:elixir_ipfs_api, "~> 0.1.0"}
+        ...
+    ]
+end
 ```
 
-## Adding content to IPFS
+## 2. Start the IPFS Daemon
+
+Start the IPFS daemon by running the following in terminal
+
+```
+$ ipfs daemon
+```
+
+This will start the ipfs daemon with the API endpoint at localhost:5001.
+If you want to start the API endpoint at a different address then add to the config
+
+```
+$ ipfs config Addresses.API /ipfs/127.0.0.1/tcp/5007
+```
+
+## 3. Create the IpfsConnection in your code
+
+The [IpfsConnection](http://hexdocs.pm/elixir_ipfs_api/IpfsConnection.html) entity contains the information of the IPFS API endpoint. By default it will try to connect to http://localhost:5001/api/v0
+
+```
+conn = %IpfsConnection{host: "127.0.0.1", base: "api/v0", port: 5007}
+```
+
+## Examples
+
+### Adding content to IPFS
+
 
 ```
 iex> conn = %IpfsConnection{}
@@ -25,7 +64,8 @@ iex> IpfsApi.add(conn, "Hello world from Elixir-Ipfs-Api")
  "Name" => "QmTcCZJEW1kUcYU1bKQk9SMGRsTisMMWXuxJ1AQerHwyaA"}}
  ```
 
-## Getting content from IPFS
+### Getting content from IPFS
+
 
 ```
 iex> conn = %IpfsConnection{}
@@ -33,39 +73,7 @@ iex> IpfsApi.get(conn, "QmTcCZJEW1kUcYU1bKQk9SMGRsTisMMWXuxJ1AQerHwyaA")
 <<81, 109, 84, 99, 67, 90, 74, 69, 87, 49, 107, 85, 99, 89, 85, 49, 98, 75, 81, 107, 57, 83, 77, 71, 82, 115, 84, 105, 115, 77, 77, 87, 88, 117, 120, 74, 49, 65, 81, 101, 114, 72, 119, 121, 97, 65, 0, 0, 0, 0, ...>>
 ```
 
-## Available APIs
-
-### Basic commands
-1. add
-2. get
-3. cat
-4. ls
-5. refs
-
-### Data structure commands
-1. block_stat
-2. block_get
-3. block_put
-4. object_data
-5. object_links
-6. object_get
-7. object_put
-8. object_stat
-9. object_patch
-10. file_ls
-
-### Network commands
-1. id
-2. bootstrap
-3. swarm_peers
-4. swarm_addr
-
-### Tool commands
-1. config_show
-2. version
-
 # TODO
-* Complete Advanced commands, networks commands & tool commands APIs
-* Add stream for adding & getting files to and from IPFS
-* Add a pool to request from multiple different IPFS nodes
+- [] Add stream for adding & getting files to and from IPFS
+- [] Add a pool to request from multiple different IPFS nodes
 
