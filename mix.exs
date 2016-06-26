@@ -3,7 +3,7 @@ defmodule ElixirIpfsApi.Mixfile do
 
   def project do
     [app: :elixir_ipfs_api,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.0",
      description: "An elixir client library for the IPFS API",
      build_embedded: Mix.env == :prod,
@@ -30,8 +30,8 @@ defmodule ElixirIpfsApi.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.8.0"},
-      {:poison, "~> 1.5"},
-      {:inch_ex, only: :docs},
+      {:poison, "~> 2.0"},
+      {:inch_ex, "~> 0.5", only: :docs},
       {:ex_doc, "~> 0.10.0", only: :dev},
       {:earmark, "~> 0.1", only: :dev},
     ]
