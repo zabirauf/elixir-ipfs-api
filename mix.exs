@@ -9,7 +9,7 @@ defmodule ElixirIpfsApi.Mixfile do
       description: "An elixir client library for the IPFS API",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      deps: deps
+      deps: deps()
     ]
   end
 
