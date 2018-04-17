@@ -5,7 +5,7 @@ defmodule ElixirIpfsApi.Mixfile do
     [
       app: :elixir_ipfs_api,
       version: "0.1.1",
-      elixir: "~> 1.0",
+      elixir: "~> 1.6",
       description: "An elixir client library for the IPFS API",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
