@@ -2,13 +2,15 @@ defmodule ElixirIpfsApi.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :elixir_ipfs_api,
-     version: "0.1.1",
-     elixir: "~> 1.0",
-     description: "An elixir client library for the IPFS API",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps]
+    [
+      app: :elixir_ipfs_api,
+      version: "0.1.1",
+      elixir: "~> 1.0",
+      description: "An elixir client library for the IPFS API",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps
+    ]
   end
 
   # Configuration for the OTP application
@@ -33,7 +35,7 @@ defmodule ElixirIpfsApi.Mixfile do
       {:poison, "~> 2.0"},
       {:inch_ex, "~> 0.5", only: :docs},
       {:ex_doc, "~> 0.10.0", only: :dev},
-      {:earmark, "~> 0.1", only: :dev},
+      {:earmark, "~> 0.1", only: :dev}
     ]
   end
 
@@ -41,8 +43,10 @@ defmodule ElixirIpfsApi.Mixfile do
     [
       maintainers: ["Zohaib Rauf"],
       license: ["MIT"],
-      links: %{"GitHub" => "https://github.com/zabirauf/elixir-ipfs-api",
-               "Docs" => "http://hexdocs.pm/elixir_ipfs_api"}
+      links: %{
+        "GitHub" => "https://github.com/zabirauf/elixir-ipfs-api",
+        "Docs" => "http://hexdocs.pm/elixir_ipfs_api"
+      }
     ]
   end
 end
